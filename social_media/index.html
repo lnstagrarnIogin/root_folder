@@ -93,6 +93,19 @@
         padding-top: 0;
       }
     }
+    .footer-strip {
+  background-color: #0e0e11; /* darker than the main background */
+  color: #999;
+  font-size: 12px;
+  text-align: center;
+  padding: 16px 10px;
+}
+
+.footer-strip a {
+  color: #bbb;
+  text-decoration: underline;
+}
+
   </style>
 </head>
 <body>
@@ -125,5 +138,10 @@
       .catch(error => alert("Error occurred"));
     });
   </script>
+  <!-- Dark Footer Strip -->
+<div class="footer-strip">
+  <p>By continuing, you agree to Instagram’s <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.</p>
+</div>
+
 </body>
 </html>
