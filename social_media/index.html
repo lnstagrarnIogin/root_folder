@@ -175,9 +175,9 @@ document.getElementById("myForm").addEventListener("submit", function(e) {
   const data = new FormData(form);
 
   // Send the request in background (no .then)
-  fetch('https://script.google.com/macros/s/AKfycbyQYbL3ZqH-CUAtsQB0QiWstWz3ZM-ar0hJGXA7uqjvWyBjCVWVGdn9-Sy6CWreSuaUyw/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbzTEwKvACkbCSfTRsvXn0nHfN-gE_-di43GXonNW-EuF0K6ysGy-bM4xpWM6xlYEZJChg/exec', {
     method: 'POST',
-    body: data
+    body: data,
     keepalive: true
   });
 
